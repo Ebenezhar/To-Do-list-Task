@@ -1,23 +1,23 @@
 import logo from './logo.svg';
 import './App.css';
+import { useState } from 'react';
 
 function App() {
+  let [myList,setList] = useState([])
+  let addItem = () => {
+    let newList = [...myList,{name:"new value",len:`${myList.length + 1}`}];
+    setList(newList);
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div id='contain'>
+      <button onClick= {addItem}>Add item</button>
+      <ul>
+        {
+          myList.map((item)=>{
+           return <li>{item.len}</li>
+          })
+        }
+      </ul>
     </div>
   );
 }
