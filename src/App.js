@@ -12,16 +12,19 @@ function App() {
   let markDone = (id) => {
     console.log(id);
     let itemIndex = list.findIndex(obj => obj.id === id);
-    list[itemIndex].isDone = true;
-    // list[id-1].isDone = true;
+    if(list[itemIndex].isDone == true){list[itemIndex].isDone = false;}
+    
+    else if(list[itemIndex].isDone == false){list[itemIndex].isDone = true;}
+      
     setList([...list]); 
   }
   let deleteContent = (id) => {
     let itemIndex = list.findIndex(obj => obj.id === id);
     console.log(list[itemIndex]);
-    list[itemIndex] = "";
+    list.splice(itemIndex,1);
+    console.log("lkk",list);
     setList([...list]); 
-  }
+  } 
     return (
     <div id='contain'>
       <input id='inp' type="text" onChange={(e) => setCurrentTask(e.target.value)}/>
