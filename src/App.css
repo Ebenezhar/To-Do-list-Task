@@ -1,8 +1,12 @@
 #contain{
-  display: block;
+  display: grid;
   place-content: center;
   min-height: 100vh;
 }
 #lab{
   display: grid;
+}
+
+.mark-done{
+    text-decoration: line-through;
 }
